@@ -1,0 +1,65 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+class bank
+{
+private:
+    /* data */
+
+public:
+    void saving_account(float principal, float r, float t);
+    void current_account(float principal, float r, float t); // only withdrawal
+};
+
+void bank::saving_account(float principal, float r, float t)
+{
+
+    string W;
+
+    float interest = ((principal * t * r) / 100);
+    cout << "the interest is" << interest << endl;
+    cout << "do you want to withdraw?if yes type Y if no type N" << endl;
+    cin >> W;
+    if (W == "Y")
+    {
+        float h;
+        cout << "how much you want to withdraw" << endl;
+        cin >> h;
+        cout << "your final amount is " << principal + interest - h;
+    }
+    if (W == "N")
+    {
+        // Do something or simply remove the return statement if not needed
+        // return 0;
+    }
+}
+
+void bank::current_account(float principal, float r, float t)
+{
+    // float r, t, interest;
+    // cout << "enter the money u want to deposit" << endl;
+    // cin >> principal;
+    // cout << "enter the time and rate" << endl;
+    // cin >> t >> r;
+    float interest = ((principal * t * r) / 100);
+    cout << "the interest is" << interest << endl;
+    cout << "thank you" << endl;
+}
+
+int main()
+{
+    bank b1;
+    float sum, r, t;
+    cout << "Enter the sum!,rate and time" << endl;
+    cin >> sum >> r >> t;
+
+    cout << "for saving account" << endl;
+    b1.saving_account(sum, r, t);
+    cout << "for current_account" << endl;
+    b1.current_account(sum, r, t);
+    return 0;
+}
